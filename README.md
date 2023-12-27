@@ -1,7 +1,7 @@
 # TFENN-examples
 
 Code and training scripts used to reproduced the results presented in:
-> [Garanger, Kévin, Julie Kraus, and Julian J. Rimoli. "Symmetry-enforcing neural networks with applications to constitutive modeling." arXiv preprint arXiv:2312.13511 (2023).](https://arxiv.org/abs/2312.13511)
+> Garanger, Kévin, Julie Kraus, and Julian J. Rimoli. "Symmetry-enforcing neural networks with applications to constitutive modeling." arXiv preprint [arXiv:2312.13511 (2023)](https://arxiv.org/abs/2312.13511).
 
 This repository code depends of the package
 [TFENN](https://github.com/kgaranger/TFENN).
