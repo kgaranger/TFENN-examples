@@ -1,0 +1,28 @@
+[project]
+name = "TFENN-examples"
+version = "0.0.1"
+authors = [
+  { name="Kévin Garanger", email="kgarange@uci.edu" },
+]
+description = "A package for running training examples using tensor feature equivariant neural networks"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "jax~=0.4.31",
+    "flax~=0.9.0",
+    "tqdm~=4.66.5",
+    "TFENN~=0.0.1",
+    ]
+
+[project.urls]
+"Homepage" = "https://github.com/kgaranger/TFENN-examples"
+"Bug Tracker" = "https://github.com/kgaranger/TFENN-examples/issues"
