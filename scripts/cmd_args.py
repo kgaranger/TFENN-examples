@@ -338,7 +338,7 @@ class CmdArgs:
         )
 
         return parser
-
+ 
     @staticmethod
     def add_logging_args(parser: argparse.ArgumentParser):
         parser.add_argument(

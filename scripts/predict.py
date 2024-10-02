@@ -221,7 +221,7 @@ def main(args: argparse.Namespace):
 
             if args.loss is not None:
                 losses = []
-
+ 
             for preds in tqdm.tqdm(predictions):
                 for sample_in, pred, sample_out, scaled_pred, descaled_input in zip(*preds):
                     if args.loss is not None:
