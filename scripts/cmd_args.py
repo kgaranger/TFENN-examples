@@ -338,7 +338,7 @@ class CmdArgs:
         )
 
         return parser
-
+ 
     @staticmethod
     def add_logging_args(parser: argparse.ArgumentParser):
         parser.add_argument(
@@ -389,5 +389,9 @@ class CmdArgs:
             default=LossType.SE,
             help="Loss function to use",
         )
-
+        parser.add_argument(                                                                                                
+            "--checkpoint_dir",                                                                                             
+            type=Path,                                                                                                      
+            help="Checkpoint of the model to start training from",                                                          
+        )  
         return parser
