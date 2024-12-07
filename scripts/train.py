@@ -133,16 +133,18 @@ def create_datasets(
     dataset_cls = SequenceDataset if sequential else Dataset
     dataset = dataset_cls.concatenate(
         [
-            dataset_cls(
-                file_path=dataset_file,
-                input_shape=args.input_shape,
-                output_shape=args.output_shape,
-                input_cols=args.file_in_cols,
-                output_cols=args.file_out_cols,
-                sequence_length=args.sequence_length,
+            (
+                dataset_cls(
+                    file_path=dataset_file,
+                    input_shape=args.input_shape,
+                    output_shape=args.output_shape,
+                    input_cols=args.file_in_cols,
+                    output_cols=args.file_out_cols,
+                    sequence_length=args.sequence_length,
+                )
+                if (k != 1 or dataset_cls()._logger.setLevel(logging.WARNING) or True)
+                else None
             )
-            if (k != 1 or dataset_cls()._logger.setLevel(logging.WARNING) or True)
-            else None
             for k, dataset_file in enumerate(args.dataset_files)
         ]
     )
@@ -493,7 +495,10 @@ def create_train_state(
 
 
 def main(args: argparse.Namespace):
-    logging.basicConfig(level=args.logging_level)
+    numeric_level = getattr(logging, args.logging_level.upper(), None)
+    if not isinstance(numeric_level, int):
+        raise ValueError("Invalid log level: %s" % args.logging_level)
+    logging.basicConfig(level=numeric_level)
 
     for flag in args.jax_config:
         jax.config.update(flag, True)
